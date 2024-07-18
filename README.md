@@ -1,1 +1,130 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+# industrialli leds
+
 Biblioteca para manipulação dos LEDs da Industrialli Hub com a utilização da biblioteca Hardware Abstraction Layer (HAL).
+
+> [!IMPORTANT]  
+> Consulte a biblioteca geral da Industrialli Hub.
+
+## Exemplo
+No exemplo abaixo, é realizado uma simples animação com os leds, alternando os leds inferiores e superiores da Industrialli Hub entre ligado e desligado.
+
+```cpp
+#include "industrialli_hub.hpp"
+
+industrialli_hub hub;
+
+int main(){
+    hub.begin();
+
+    while(1){
+      for (size_t i = 0; i < 24; i++){
+        leds.set_led(i, HIGH);
+      }
+		
+      leds.update();
+
+      HAL_Delay(500);
+      leds.set_all(LOW);
+      leds.update();
+      HAL_Delay(500);
+
+      for (size_t i = 24; i < 32; i++){
+        leds.set_led(i, HIGH);
+      }
+
+      leds.update();
+
+      HAL_Delay(500);
+      leds.set_all(LOW);
+      leds.update();
+      HAL_Delay(500);
+    }
+}
+```
+
+## Funções
+
+Segue abaixo as funções disponíveis para a manipulação dos leds da Industrialli Hub.
+
+<details>
+<summary>begin</summary>
+
+Inicializa os leds.
+
+**Parâmetros:** void
+
+**Retorno:** void
+
+**Exemplo**
+```cpp
+leds.begin();
+```
+</details>
+
+<details>
+<summary>start</summary>
+
+Realiza uma animação com os leds.
+
+**Parâmetros:** void
+
+**Retorno:** void
+
+**Exemplo**
+```cpp
+leds.start();
+```
+</details>
+
+<details>
+<summary>set_led</summary>
+
+Configura um estado para um led específico.
+
+**Parâmetros:** 
+- uint8_t: número do led entre 0 e 31;
+- bool: estado do led: 0/LOW para desligar e 1/HIGH para ligar.
+
+**Retorno:** void
+
+**Exemplo**
+```cpp
+leds.set_led(0, HIGH);
+leds.update();
+```
+</details>
+
+<details>
+<summary>set_all</summary>
+
+Configura um estado para todos os leds.
+
+**Parâmetros:** 
+- bool: estado dos leds: 0/LOW para desligar e 1/HIGH para ligar.
+
+**Retorno:** void
+
+**Exemplo**
+```cpp
+leds.set_all(HIGH);
+leds.update();
+```
+</details>
+
+<details>
+<summary>update</summary>
+
+Envia os estados dos leds para o CI.
+
+**Parâmetros:** void
+
+**Retorno:** void
+
+**Exemplo**
+```cpp
+leds.set_all(HIGH);
+leds.update();
+```
+</details>
