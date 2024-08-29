@@ -2,10 +2,10 @@
 
 # industrialli leds
 
-Biblioteca para manipulação dos LEDs da Industrialli Hub com a utilização da biblioteca Hardware Abstraction Layer (HAL).
+Biblioteca para manipulação dos leds da Industrialli Hub para o framework Arduino com o uso da biblioteca [stm32ino](https://github.com/stm32duino/).
 
 > [!IMPORTANT]  
-> Consulte a biblioteca geral da Industrialli Hub.
+> Consulte a biblioteca principal da Industrialli Hub.
 
 ## Exemplo
 No exemplo abaixo, é realizado uma simples animação com os leds, alternando os leds inferiores e superiores da Industrialli Hub entre ligado e desligado.
@@ -15,20 +15,21 @@ No exemplo abaixo, é realizado uma simples animação com os leds, alternando o
 
 industrialli_hub hub;
 
-int main(){
+void setup(){
     hub.begin();
+}
 
-    while(1){
+void loop(){
       for (size_t i = 0; i < 24; i++){
         leds.set_led(i, HIGH);
       }
 		
       leds.update();
 
-      HAL_Delay(500);
+      delay(500);
       leds.set_all(LOW);
       leds.update();
-      HAL_Delay(500);
+      delay(500);
 
       for (size_t i = 24; i < 32; i++){
         leds.set_led(i, HIGH);
@@ -36,11 +37,10 @@ int main(){
 
       leds.update();
 
-      HAL_Delay(500);
+      delay(500);
       leds.set_all(LOW);
       leds.update();
-      HAL_Delay(500);
-    }
+      delay(500);
 }
 ```
 
