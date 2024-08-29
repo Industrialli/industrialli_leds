@@ -5,7 +5,7 @@
 Biblioteca para manipulação dos leds da Industrialli Hub para o framework Arduino com o uso da biblioteca [stm32ino](https://github.com/stm32duino/).
 
 > [!IMPORTANT]  
-> Consulte a biblioteca principal da Industrialli Hub.
+> Consulte a biblioteca principal da Industrialli Hub [🔗](https://github.com/Industrialli/Industrialli-Hub).
 
 ## Exemplo
 No exemplo abaixo, é realizado uma simples animação com os leds, alternando os leds inferiores e superiores da Industrialli Hub entre ligado e desligado.
