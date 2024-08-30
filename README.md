@@ -97,6 +97,22 @@ leds.update();
 </details>
 
 <details>
+<summary>toggle</summary>
+
+Inverte o estado atual de um led específico.
+
+**Parâmetros:** 
+- uint8_t: número do led entre 0 e 31;
+
+**Retorno:** void
+
+**Exemplo**
+```cpp
+leds.toggle(0);
+```
+</details>
+
+<details>
 <summary>set_all</summary>
 
 Configura um estado para todos os leds.
