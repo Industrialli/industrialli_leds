@@ -39,6 +39,10 @@ void industrialli_leds::set_led(uint8_t _led, bool _value){
     }
 }
 
+void industrialli_leds::toggle(uint8_t _led){
+    leds ^= 0x01 << _led;
+}
+
 void industrialli_leds::set_all(bool _value){
     leds = _value;
 }
